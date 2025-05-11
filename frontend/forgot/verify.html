@@ -1,0 +1,32 @@
+<!-- frontend/forgot/verify.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify OTP</title>
+  <link rel="stylesheet" href="forgot.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="welcome">Verify OTP</h1>
+
+    <div class="form-box">
+      <div id="status-message"></div>
+
+      <form id="verify-form">
+        <input type="text" id="otp" placeholder="Enter OTP" required />
+        <input type="password" id="new-password" placeholder="Enter New Password" required />
+        <button type="submit">Reset Password</button>
+
+        <p class="back-msg">
+          <a href="../login/login.html">← Back to Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="verify.js"></script>
+</body>
+</html>
