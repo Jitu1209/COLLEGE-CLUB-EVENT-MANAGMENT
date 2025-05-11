@@ -1,0 +1,104 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+}
+.container {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Jhalak.png') center/cover no-repeat fixed;
+  padding: 0 8%;
+}
+.navbar {
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.menu-icon {
+  width: 30px;
+  cursor: pointer;
+}
+nav {
+  flex: 1;
+  text-align: right;
+}
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 60px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 13px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap:30px;
+  margin-top: 30px;
+}
+.col {
+  flex: 1 1 48%;
+  min-width: 300px;
+  padding: 10px;
+}
+h1 {
+  color: #f3eef5;
+  font-size: 90px;
+}
+p {
+  color: #f9f5f5;
+  font-size: 25px;
+  line-height: 35px;
+  margin-top: 20px;
+}
+button {
+  width: 180px;
+  color: #000;
+  font-size: 14px;
+  padding: 12px 0;
+  background: #fff;
+  border: 0;
+  border-radius: 20px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+.card {
+  width: 240px;
+  height: 260px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  margin: 15px;
+  padding: 20px;
+  display: inline-block;
+  transition: transform 0.5s;
+  position: relative;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card1 { background-image: url('Jhalak1.png'); }
+.card2 { background-image: url('Jhalak2.png'); }
+.card3 { background-image: url('Jhalak3.png'); }
+.card4 { background-image: url('Jhalak4.png'); }
+.card5 { background-image: url('Jhalak5.png'); }
+.card6 { background-image: url('Jhalak6.png'); }
+
+h5 {
+  text-shadow: 0 0 5px #999;
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 16px;
+}
