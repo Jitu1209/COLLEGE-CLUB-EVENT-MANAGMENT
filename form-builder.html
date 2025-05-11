@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Form Builder</title>
+  <link rel="stylesheet" href="form-builder.css">
+</head>
+<body>
+  <div class="form-container" id="form-container">
+    <h1 id="form-title">Register for Event</h1>
+    <form id="event-form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="rollno">College Roll No:</label>
+      <input type="text" id="rollno" required>
+
+      <label for="department">Department:</label>
+      <input type="text" id="department" required>
+
+      <label for="year">Year:</label>
+      <select id="year" required>
+        <option value="">Select Year</option>
+        <option value="1st Year">1st Year</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year</option>
+      </select>
+
+      <label for="event">Event:</label>
+      <input type="text" id="event" readonly>
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- ✅ Review Section -->
+  <div class="form-container" id="review-container" style="display:none;">
+    <h1>✅ Registration Successful!</h1>
+    <p><strong>Name:</strong> <span id="r-name"></span></p>
+    <p><strong>Email:</strong> <span id="r-email"></span></p>
+    <p><strong>Roll No:</strong> <span id="r-rollno"></span></p>
+    <p><strong>Department:</strong> <span id="r-dept"></span></p>
+    <p><strong>Year:</strong> <span id="r-year"></span></p>
+    <p><strong>Event:</strong> <span id="r-event"></span></p>
+    <p><strong>Message:</strong> <span id="r-msg"></span></p>
+    <br>
+    <a class="join-btn" href="https://chat.whatsapp.com/your-group-link" target="_blank">Join WhatsApp Group</a>
+  </div>
+
+  <script src="form-builder.js"></script>
+</body>
+</html>

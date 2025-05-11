@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GDSC</title>
+  <link rel="stylesheet" href="GDSC.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+        </ul>
+      </nav>
+      <img src="images/GDSC.png" class="menu-icon" alt="GDSC Logo">
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h1>GDSC</h1>
+        <p>
+          Welcome to GDSC's official event page. Here you'll find all event highlights,
+          information and registration. Explore our creativity and community spirit!
+        </p>
+        <button type="button">Explore</button>
+      </div>
+
+      <div class="col">
+        <div class="card card1" onclick="openForm('GDSC')"><h5>EVENT 1</h5></div>
+        <div class="card card2" onclick="openForm('GDSC')"><h5>EVENT 2</h5></div>
+        <div class="card card3" onclick="openForm('GDSC')"><h5>EVENT 3</h5></div>
+        <div class="card card4" onclick="openForm('GDSC')"><h5>EVENT 4</h5></div>
+        <div class="card card5" onclick="openForm('GDSC')"><h5>EVENT 5</h5></div>
+        <div class="card card6" onclick="openForm('GDSC')"><h5>EVENT 6</h5></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openForm(eventName) {
+      const url = `form-builder.html?event=${encodeURIComponent(eventName)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
