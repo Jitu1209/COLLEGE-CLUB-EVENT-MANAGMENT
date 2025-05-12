@@ -40,20 +40,17 @@ function switchForm(toLogin) {
   document.getElementById('password').value = "";
 }
 
-// Toggle between login/signup
 toggleLink.addEventListener('click', (e) => {
   e.preventDefault();
   switchForm(!isLogin);
 });
 
-// ✅ Forgot password redirect
 const forgotLink = document.getElementById('forgot-link');
 forgotLink.addEventListener('click', (e) => {
   e.preventDefault();
-  window.location.href = "../forgot/forgot.html"; // ✅ adjust path if needed
+  window.location.href = "../forgot/forgot.html";
 });
 
-// Submit form handler
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -65,7 +62,7 @@ form.addEventListener('submit', async (e) => {
   const body = isLogin ? { email, password } : { name, email, password };
 
   try {
-    const res = await fetch("https://college-backend-production.up.railway.app/api/auth/login"), {
+    const res = await fetch(`https://college-backend-production.up.railway.app/api/auth/${endpoint}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
