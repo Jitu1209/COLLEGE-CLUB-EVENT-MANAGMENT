@@ -80,7 +80,7 @@ if (forgotForm) {
       const data = await res.json();
       if (res.ok) {
         alert("OTP sent successfully. Check your mail.");
-        window.location.href = "../forgot/reset.html";
+        window.location.href = "../forgot.html";
       } else {
         alert(data.message || "Failed to send OTP.");
       }
