@@ -1,45 +1,89 @@
-// frontend/forgot/forgot.js
+// ✅ signup.js (same as login.js because both are handled by toggle)
+// No need for separate signup.js if using combined login.js with toggle
+// But if needed separately:
 
-const form = document.getElementById("forgot-form");
-const messageBox = document.getElementById("status-message");
+const form = document.getElementById('signup-form');
+const BASE_URL = "https://college-backend-production.up.railway.app";
 
-function showMessage(msg, type = 'success') {
-  messageBox.textContent = msg;
-  messageBox.className = type;
-  messageBox.style.display = "block";
-
-  setTimeout(() => {
-    messageBox.style.display = "none";
-    messageBox.className = "";
-  }, 3000);
-}
-
-form.addEventListener("submit", async (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
   try {
-    const res = await fetch("https://college-backend-production.up.railway.app/api/auth/login"), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
+    const res = await fetch(`${BASE_URL}/api/auth/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password })
     });
 
     const data = await res.json();
-
     if (res.ok) {
-      localStorage.setItem("resetEmail", email);
-      showMessage("OTP sent to your email", "success");
-
-      setTimeout(() => {
-        window.location.href = "verify.html";
-      }, 1500);
+      alert("Signup successful! Now login.");
+      window.location.href = "../login/index.html";
     } else {
-      showMessage(data.message || "Failed to send OTP", "error");
+      alert(data.message || "Signup failed.");
+    }
+  } catch (err) {
+    alert("Server error occurred. Try again.");
+  }
+});
+
+
+// ✅ reset.js (For resetting password using OTP)
+const formReset = document.getElementById('reset-form');
+
+formReset.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const otp = document.getElementById('otp').value;
+  const newPassword = document.getElementById('new-password').value;
+
+  try {
+    const res = await fetch(`${BASE_URL}/api/auth/reset-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, otp, newPassword })
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert("Password reset successful. You can now login.");
+      window.location.href = "../login/index.html";
+    } else {
+      alert(data.message || "Failed to reset password.");
     }
   } catch (error) {
-    console.error(error);
-    showMessage("Server error occurred", "error");
+    alert("Server error occurred while resetting password.");
+  }
+});
+
+
+// ✅ forgot.js (For sending OTP to email)
+const forgotForm = document.getElementById('forgot-form');
+
+forgotForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+
+  try {
+    const res = await fetch(`${BASE_URL}/api/auth/forgot-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert("OTP sent successfully. Check your mail.");
+      window.location.href = "../forgot/reset.html";
+    } else {
+      alert(data.message || "Failed to send OTP.");
+    }
+  } catch (err) {
+    alert("Server error while sending OTP.");
   }
 });
