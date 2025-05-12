@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: url("assets/college.jpg") no-repeat center center/cover;
+  background: url("college.jpg") no-repeat center center/cover;
   height: 100vh;
   display: flex;
   justify-content: center;
