@@ -65,7 +65,7 @@ form.addEventListener('submit', async (e) => {
   const body = isLogin ? { email, password } : { name, email, password };
 
   try {
-    const res = await fetch(`http://localhost:5000/api/auth/${endpoint}`, {
+    const res = await fetch("https://college-backend-production.up.railway.app/api/auth/login"), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
