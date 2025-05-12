@@ -1,3 +1,4 @@
+// ✅ login.js (Final version with backend URL fix)
 const toggleLink = document.getElementById('toggle-link');
 const formTitle = document.getElementById('form-title');
 const nameInput = document.getElementById('name');
@@ -5,10 +6,12 @@ const submitBtn = document.getElementById('submit-btn');
 const form = document.getElementById('auth-form');
 const messageBox = document.getElementById('status-message');
 
+const BASE_URL = "https://college-backend-production.up.railway.app";
+
 let isLogin = true;
 
 function showMessage(msg, type = 'success') {
-  messageBox.textContent = "✅ " + msg;
+  messageBox.textContent = (type === 'error' ? "❌ " : "✅ ") + msg;
   messageBox.className = type;
   messageBox.style.display = "block";
 
@@ -62,7 +65,7 @@ form.addEventListener('submit', async (e) => {
   const body = isLogin ? { email, password } : { name, email, password };
 
   try {
-    const res = await fetch(`https://college-backend-production.up.railway.app/api/auth/${endpoint}`, {
+    const res = await fetch(`${BASE_URL}/api/auth/${endpoint}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
